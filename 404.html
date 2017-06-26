@@ -28,6 +28,11 @@ body {
 .spinner div {
   background-color: grey;
 }
+  
+.footer {
+  bottom: 0.5em;
+  left: 1em;
+}
 </style>
 </head>
 <html>
@@ -36,6 +41,10 @@ body {
   <h1 id=header></h1>
   <div id=results><h2></h2><ol></ol></div>
   <div class=spinner><div class=cube1></div><div class=cube2></div></div>
+</div>
+<div class=footer>
+  <a href=https://github.com/devsnek/spoopy.link>GitHub</a> |
+  <a href=https://patreon.com/devsnek>Patreon</a>
 </div>
 <script>
 const endpoint = 'https://spoopy-link.now.sh/json';
