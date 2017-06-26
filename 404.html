@@ -37,13 +37,14 @@ body {
   <div class=spinner><div class=cube1></div><div class=cube2></div></div>
 </div>
 <script>
+const endpoint = 'https://spoopy-link.now.js/json';
 const safe = document.querySelector('#results h2');
 const list = document.querySelector('#results ol');
 const heading = document.getElementById('header');
 
 const suspect = window.location.pathname.slice(1);
 heading.innerHTML = suspect;
-fetch(`/json/${suspect}`).then(r => r.json())
+fetch(`${endpoint}/${suspect}`).then(r => r.json())
   .then((res) => {
     document.querySelector('.spinner').remove();
     safe.innerHTML = res.safe ? 'Safe' : 'Unsafe';
