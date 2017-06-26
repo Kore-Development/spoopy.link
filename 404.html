@@ -33,15 +33,17 @@ body {
 <html>
 <body>
 <div class=wrapper>
-  <h1>https://goo.gl/Jfc6rF</h1>
+  <h1 id=header></h1>
   <div id=results><h2></h2><ol></ol></div>
   <div class=spinner><div class=cube1></div><div class=cube2></div></div>
 </div>
 <script>
 const safe = document.querySelector('#results h2');
 const list = document.querySelector('#results ol');
+const heading = document.getElementById('#header');
 
 const suspect = window.location.pathname.slice(1);
+heading.innerHTML = suspect;
 fetch(`/json/${suspect}`).then(r => r.json())
   .then((res) => {
     document.querySelector('.spinner').remove();
