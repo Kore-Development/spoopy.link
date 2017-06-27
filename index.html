@@ -21,7 +21,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-  
+
 .footer {
   position: fixed;
   bottom: 0.5em;
@@ -32,13 +32,18 @@ body {
 <html>
 <body>
 <div class=wrapper>
-  <label>Link to check <input type=text></label>
-  <button onclick="doStuff">Go</button>
+  <label>Link to check <input id=input type=text></label>
+  <button id=go>Go</button>
 </div>
 <div class=footer>
   <a href=https://github.com/devsnek/spoopy.link>GitHub</a> |
   <a href=https://patreon.com/devsnek>Patreon</a>
 </div>
+<script>
+document.getElementById('go').onclick = function() {
+  window.location.pathname = document.getElementById('input').value;
+}
+</script>
 <script>
 
 </script>
