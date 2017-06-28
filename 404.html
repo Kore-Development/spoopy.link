@@ -48,14 +48,13 @@ body {
   <a href=https://patreon.com/devsnek>Patreon</a>
 </div>
 <script>
-const endpoint = 'https://spoopy.link/json';
 const safe = document.querySelector('#results h2');
 const list = document.querySelector('#results ol');
 const heading = document.getElementById('header');
 
 const suspect = window.location.pathname.slice(1);
 heading.innerHTML = suspect;
-fetch(`${endpoint}/${suspect}`)
+fetch(`/json/${suspect}`)
   .then(r => r.status === 200 ? r.json() : r.text().then(t => Promise.reject(new Error(t))))
   .catch((err) => {
     safe.innerHTML = err.message;
