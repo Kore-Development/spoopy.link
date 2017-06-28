@@ -55,7 +55,11 @@ const heading = document.getElementById('header');
 
 const suspect = window.location.pathname.slice(1);
 heading.innerHTML = suspect;
-fetch(`${endpoint}/${suspect}`).then(r => r.json())
+fetch(`${endpoint}/${suspect}`)
+  .then(r => r.status === 200 ? r.json() : Promise.reject(new Error(r.text())))
+  .catch((err) => {
+    safe.innerHTML = err.message;
+  })
   .then((res) => {
     document.querySelector('.spinner').remove();
     safe.innerHTML = res.safe ? 'Safe' : 'Unsafe';
